@@ -1,3 +1,25 @@
+# Implementation notes/Installation
+
+Test Submission for michael larsen.
+
+In order to get this to run, you will need to integrate the H2 database.
+The dependencies have been added to the gradle build script so 'gradle build' 
+should retrieve everything necessary. After running the service, the database 
+should be available. There is an SQL script in src/main/resources which 
+contains the data I used to test. 
+Copy and paste into the console window at http://localhost:8080/h2-console/login.do, 
+and run the script. Verify with a SELECT statment.
+
+* The Service must be running in order to access the database - H2 is not very 
+* robust but was a good replacement for the backend server. *
+
+Thank you - call me if you have any trouble. 
+
+PS: I am going to continue to test and do more pushes, but the main code runs 
+for all end points.
+
+
+---------------------------------
 # Coding Challenge
 
 ### In this assessment you will be tasked with filling out the functionality of different methods that will be listed further down.
