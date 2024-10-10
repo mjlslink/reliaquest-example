@@ -26,7 +26,7 @@ For example:
 There is an index on the employees table that disallows adding records with 
 duplicate names, but partial searches are not supported as they were not specified
   (e.g. should wildcards be supported, etc.)
-- when creating a new person, I avoided using a BLOB to store the bytes of a picture -
+- when creating a new employee, I avoided using a BLOB to store the bytes of a picture -
 the attribute is intended to support a URL which a client app can retrieve. 
 ---------------------------------
 # Coding Challenge
