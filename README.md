@@ -69,7 +69,7 @@ deleteEmployee(String id)
 
     request:
         method: GET
-        parameters: 
+        x`parameters: 
             id (String)
         full route: https://dummy.restapiexample.com/api/v1/employee/{id}
     response: 
