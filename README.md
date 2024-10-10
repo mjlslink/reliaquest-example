@@ -18,6 +18,14 @@ Thank you - call me if you have any trouble.
 PS: I am going to continue to test and do more pushes, but the main code runs 
 for all end points.
 
+# Weaknesses
+
+- the current implementation does not allow searching with partial words. 
+For example:
+![img.png](img.png)
+There is an index on the employees table that disallows adding records with 
+duplicate names, but partial searches are not supported as they were not specified
+  (e.g. should wildcards be supported, etc.)
 
 ---------------------------------
 # Coding Challenge
