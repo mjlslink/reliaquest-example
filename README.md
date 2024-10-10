@@ -28,6 +28,12 @@ duplicate names, but partial searches are not supported as they were not specifi
   (e.g. should wildcards be supported, etc.)
 - when creating a new employee, I avoided using a BLOB to store the bytes of a picture -
 the attribute is intended to support a URL which a client app can retrieve. 
+- When H2 is started in-process and the console is accessed, an error upon retrieval of 
+'favicon.jpg' appears. This is why the db and application ports are identical, which 
+seems to mix some requests up. The functionality is controlled in the server.port setting 
+in the configuration and setup for the application in src/main/resources/application.properties.
+If set to a different port than that of the microservice this error should disappear, but 
+I have not had time to test this yet. 
 ---------------------------------
 # Coding Challenge
 
