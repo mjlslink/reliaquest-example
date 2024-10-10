@@ -25,6 +25,7 @@ For example:
 ![img.png](img.png)
 but should this only be partially specififed:
 ![img_1.png](img_1.png)
+
 There is an index on the employees table that disallows adding records with 
 duplicate names, but partial searches are not supported as they were not specified
   (e.g. should wildcards be supported, etc.)
