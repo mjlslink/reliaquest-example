@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.rqchallenge.employees.EmployeeEntityControllerImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-10T01:19:45" hostname="DESKTOP-2UI552B" time="0.465">
-  <properties/>
-  <testcase name="createEmployee_complete()" classname="com.example.rqchallenge.employees.EmployeeEntityControllerImplTest" time="0.465"/>
-  <system-out><![CDATA[{employee_name=Larsen, employee_salary=145000, employee_age=45, picture=}
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -36,6 +36,7 @@ public class EmployeeControllerImpl  {
 
         System.out.println(employeeInput);
 
+        //check the input
         Employee newEmployee = new Employee(
                 employeeInput.get("employee_name").toString(),
                 (Integer)employeeInput.get("employee_salary"),

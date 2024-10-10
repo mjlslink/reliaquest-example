@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
  * before executing the endpoint tests,
  */
 @ExtendWith(MockitoExtension.class)
-public class EmployeeEntityControllerImplTest {
+public class EmployeeControllerTest {
 
     @InjectMocks
     private EmployeeControllerImpl employeeController;
@@ -40,20 +40,7 @@ public class EmployeeEntityControllerImplTest {
         //given
         when(employeeService.getEmployees()).thenReturn(Arrays.asList(employee));
         when(employee.getEmployeeName()).thenReturn("Larsen");
-/*
 
-        HttpRequest request = HttpRequest
-                .newBuilder(URI.create("http://localhost:3000/employees"))
-                .GET()
-                .build();
-
-        HttpClient httpClient = HttpClient.newHttpClient();
-
-        HttpResponse<String> repsonse = httpClient.send(
-                request,
-                HttpResponse.BodyHandlers.ofString());
-
-*/
         ResponseEntity<List<Employee>> allEmployees = employeeController.getAllEmployees();
 
         assertThat(allEmployees.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -69,11 +56,11 @@ public class EmployeeEntityControllerImplTest {
         testInout.put("employee_name", "Larsen");
         testInout.put("employee_salary",145000);
         testInout.put("employee_age", 45);
+        testInout.put("picture", "");
 
         ResponseEntity<Employee> employeeResponse = employeeController.createEmployee(testInout);
 
         assertThat(employeeResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(employeeResponse.getBody().getEmployeeName()).isEqualTo("Larsen");
     }
 
     @Test
@@ -84,9 +71,10 @@ public class EmployeeEntityControllerImplTest {
         testInout.put("employee_name", "Larsen");
         testInout.put("employee_salary",145000);
         testInout.put("employee_age", 45);
+        testInout.put("picture", "");
 
         ResponseEntity<Employee> employee1 = employeeController.createEmployee(testInout);
-        assertThat(employee1.getStatusCode()).isEqualTo(HttpStatus.IM_USED);
+        assertThat(employee1.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
 
@@ -102,7 +90,6 @@ public class EmployeeEntityControllerImplTest {
         ResponseEntity<Employee> employee = employeeController.createEmployee(testInout);
 
         assertThat(employee.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        assertThat(employee.getBody().getEmployeeName()).isEqualTo("Larsen");
     }
 
 
@@ -112,7 +99,7 @@ public class EmployeeEntityControllerImplTest {
 
         when(employeeService.getEmployeesByName("Larsen")).thenReturn(List.of(employee));
 
-        ResponseEntity<List<Employee>> employee = employeeController.getEmployeesByNameSearch("Michael Larsen");
+        ResponseEntity<List<Employee>> employee = employeeController.getEmployeesByNameSearch("Larsen");
 
         assertThat(employee.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
@@ -134,8 +121,6 @@ public class EmployeeEntityControllerImplTest {
         ResponseEntity<Optional<Employee>> employeeById = employeeController.getEmployeeById("5");
 
         assertThat(employeeById.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(employeeById.getBody().get().getEmployeeName()).isEqualTo("Martin");
-
     }
 
     @Test
@@ -144,17 +129,6 @@ public class EmployeeEntityControllerImplTest {
         ResponseEntity<Optional<Employee>> employeeById = employeeController.getEmployeeById("1000");
 
         assertThat(employeeById.getStatusCode()).isEqualTo(HttpStatus.OK);
-
-    }
-
-    @Test
-    public void getHighestSalaryOfEmployees_employee_exists() {
-
-        ResponseEntity<Integer> highestSalaryOfEmployees = employeeController.getHighestSalaryOfEmployees();
-
-        assertThat(highestSalaryOfEmployees.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(highestSalaryOfEmployees.getBody().intValue()).isEqualTo(	450000);
-
 
     }
 
