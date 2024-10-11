@@ -63,6 +63,8 @@ http://localhost:8080/highestSalary
 The create method was done with SoapUI so as to create the correct RequestBody.
 I verified and the entry was created after I changed the DDL to AUTO-INCREMENT (a H2 feature).
 
+![img_7.png](img_7.png)
+
 The delete method returned constantly:
 
 [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported]
