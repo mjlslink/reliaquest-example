@@ -37,6 +37,38 @@ seems to mix some requests up. The functionality is controlled in the server.por
 in the configuration and setup for the application in src/main/resources/application.properties.
 If set to a different port than that of the microservice this error should disappear, but 
 I have not had time to test this yet. 
+
+* Tests
+
+http://localhost:8080/
+
+![img_2.png](img_2.png)
+
+http://localhost:8080/5
+
+![img_3.png](img_3.png)
+
+http://localhost:8080/search/Larsen
+
+![img_4.png](img_4.png)
+
+http://localhost:8080/topTenHighestEarningEmployeeNames
+
+![img_5.png](img_5.png)
+
+http://localhost:8080/highestSalary
+
+![img_6.png](img_6.png)
+
+The create method was done with SoapUI so as to create the correct RequestBody.
+I verified and the entry was created after I changed the DDL to AUTO-INCREMENT (a H2 feature).
+
+The delete method returned constantly:
+
+[nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported]
+
+As I was required to implement 5 of the Rest endpoints, I hope the submission is acceptable.
+
 ---------------------------------
 # Coding Challenge
 
