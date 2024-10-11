@@ -27,7 +27,7 @@ public class EmployeeControllerImpl  {
         return new ResponseEntity<List<Employee>> (employeeeService.getEmployees(), HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping("create")
     public ResponseEntity<Employee> createEmployee(@RequestBody Map<String, Object> employeeInput) {
 
         // these parameters are set from the UI (e.g. an HTML form or Postman) and do
@@ -66,7 +66,7 @@ public class EmployeeControllerImpl  {
         return new ResponseEntity<Integer>(employeeeService.getHighestSalaryOfEmployees(), HttpStatus.OK);
     }
 
-    @GetMapping("/topTenHighestEarningEmployeeNames")
+        @GetMapping("/topTenHighestEarningEmployeeNames")
     public ResponseEntity<List<String>> getTopTenHighestEarningEmployeeNames() {
         return new ResponseEntity<List<String>>(employeeeService.getHighestEarningEmployeeNames(), HttpStatus.OK);
     }
