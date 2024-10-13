@@ -5,10 +5,10 @@ Test Submission for michael larsen.
 In order to get this to run, you will need to integrate the H2 database.
 The dependencies have been added to the gradle build script so 'gradle build' 
 should retrieve everything necessary. After running the service, the database 
-should be available. There is an SQL script in src/main/resources which 
-contains the data I used to test. 
-Copy and paste into the console window at http://localhost:8080/h2-console/login.do, 
-and run the script. Verify with a SELECT statment.
+should be available. The console runs at http://localhost:8080/h2-console/login.do 
+with sa/password as username/password.  Create the table EMPLOYEES first by copying the contents of src/main/resources/empoyees.ddl into console and running it. THe table should appear to the left. 
+Next, load the test data by copying the contents of  src/main/resources/data.sql into
+the console and running that too.  Now the database should be ready for use.
 
 * The Service must be running in order to access the database - H2 is not very 
 * robust but was a good replacement for the backend server. *
