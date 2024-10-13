@@ -15,9 +15,6 @@ the console and running that too.  Now the database should be ready for use.
 
 Thank you - call me if you have any trouble. 
 
-PS: I am going to continue to test and do more pushes, but the main code runs 
-for all end points.
-
 # Weaknesses
 
 - the current implementation does not allow searching with partial words. 
