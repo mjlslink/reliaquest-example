@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @RestController
 public class EmployeeController {
@@ -34,8 +35,6 @@ public class EmployeeController {
         // not correspond to the database column names - the sample data seems to
         // indicate these different names
 
-        System.out.println(employeeInput);
-
         //check the input
         Employee newEmployee = new Employee(
                 employeeInput.get("employee_name").toString(),
@@ -50,7 +49,6 @@ public class EmployeeController {
 
     @GetMapping("/search/{searchString}")
     public ResponseEntity<List<Employee>> getEmployeesByNameSearch(@PathVariable("searchString") String searchString) {
-        System.out.println("searching for name = " + searchString);
         return new ResponseEntity<List<Employee>>(employeeeService.getEmployeesByName(searchString), HttpStatus.OK);
     }
 
@@ -73,7 +71,6 @@ public class EmployeeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployeeById(@PathVariable("id") String id) {
-        System.out.println("Deleting id: " + id);
         return new ResponseEntity<String>(employeeeService.deleteEmployeeById(id), HttpStatus.OK);
     }
 }
