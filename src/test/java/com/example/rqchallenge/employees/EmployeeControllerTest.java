@@ -1,6 +1,6 @@
 package com.example.rqchallenge.employees;
 
-import com.example.rqchallenge.employees.controller.EmployeeControllerImpl;
+import com.example.rqchallenge.employees.controller.EmployeeController;
 import com.example.rqchallenge.employees.model.Employee;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 public class EmployeeControllerTest {
 
     @InjectMocks
-    private EmployeeControllerImpl employeeController;
+    private EmployeeController employeeController;
 
     @Mock
     private EmployeeService employeeService;

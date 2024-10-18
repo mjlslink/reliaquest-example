@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
 
-    private EmployeeRepository repository;
+    private final Logger logger = Logger.getLogger(getClass().getName());
 
+    private final EmployeeRepository repository;
     private final Mapper mapper;
 
     @Autowired
@@ -45,7 +47,7 @@ public class EmployeeService {
                 .max()
                 .orElseThrow();
 
-        System.out.println("Max salary is " + maxSalary);
+        logger.info("Max salary is " + maxSalary);
 
         return employees.stream()
                 .filter(e -> e.getEmployeeSalary() < maxSalary)
@@ -61,7 +63,7 @@ public class EmployeeService {
     public List<Employee> getEmployeesByName(@NotNull String name){
 
         return repository.findByName(name).stream()
-                .filter(employee -> employee.getEmployeeName().contains(name))
+                .filter(employee -> employee.getName().contains(name))
                 .map(mapper::toDTO)
                 .collect(Collectors.toList());
     }
@@ -70,17 +72,18 @@ public class EmployeeService {
     public Integer getHighestSalaryOfEmployees(){
         List<Employee> employees = getEmployees();
 
-        Integer maxSalary = employees.stream()
+        return employees.stream()
                 .mapToInt(Employee::getEmployeeSalary)
                 .max()
                 .orElseThrow();
-
-        return maxSalary;
     }
 
     public String deleteEmployeeById(String id) {
+        System.out.println("Deleting ");
         EmployeeEntity byId = repository.getById(Integer.parseInt(id));
-        String name = byId.getEmployeeName();
+        String name = byId.getName();
+
+        logger.info("Deleting " + name);
 
         repository.delete(byId);
 

@@ -1,4 +1,4 @@
-INSERT into employees (id, name, salary, age, picture) values (1, 'Larsen', 150000, 51, 'http://www.linkedin.com/in/njlenc2022');
+INSERT into employees (id, name, salary, age, picture) values (21, 'Larsen', 150000, 51, 'http://www.linkedin.com/in/njlenc2022');
 INSERT into employees (id, name, salary, age, picture) values (2, 'Jones', 110000, 23, 'http://www.linkedin.com/in/njlenc2022');
 INSERT into employees (id, name, salary, age, picture) values (3, 'Edwards', 130000, 45, 'http://www.linkedin.com/in/njlenc2022');
 INSERT into employees (id, name, salary, age, picture) values (4, 'Thomas', 100000, 19, 'http://www.linkedin.com/in/njlenc2022');

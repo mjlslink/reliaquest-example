@@ -3,7 +3,7 @@ package com.example.rqchallenge.employees.model;
 public class Mapper {
 
     public  Employee toDTO(EmployeeEntity employee) {
-        return new Employee(employee.getEmployeeName(), employee.getSalary(), employee.getAge(), employee.getPictureUrl());
+        return new Employee(employee.getName(), employee.getSalary(), employee.getAge(), employee.getPicture());
     }
 
     public  EmployeeEntity toEntity(Employee employee) {

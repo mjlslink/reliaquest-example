@@ -13,12 +13,12 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-public class EmployeeControllerImpl  {
+public class EmployeeController {
 
     private final EmployeeService employeeeService;
 
     @Autowired
-    EmployeeControllerImpl(final EmployeeService employeeService) {
+    EmployeeController(final EmployeeService employeeService) {
         this.employeeeService = employeeService;
     }
 
@@ -66,13 +66,14 @@ public class EmployeeControllerImpl  {
         return new ResponseEntity<Integer>(employeeeService.getHighestSalaryOfEmployees(), HttpStatus.OK);
     }
 
-        @GetMapping("/topTenHighestEarningEmployeeNames")
+    @GetMapping("/topTenHighestEarningEmployeeNames")
     public ResponseEntity<List<String>> getTopTenHighestEarningEmployeeNames() {
         return new ResponseEntity<List<String>>(employeeeService.getHighestEarningEmployeeNames(), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployeeById(@PathVariable("id") String id) {
+        System.out.println("Deleting id: " + id);
         return new ResponseEntity<String>(employeeeService.deleteEmployeeById(id), HttpStatus.OK);
     }
 }

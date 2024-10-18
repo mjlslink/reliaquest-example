@@ -1,5 +1,10 @@
 package com.example.rqchallenge.employees.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * This is a DTO object, as described by Martin Fowler, Patterns of
  * Enterprise Application Architecture. It has no logic and actually should
@@ -14,48 +19,15 @@ package com.example.rqchallenge.employees.model;
  *
  * @author  Michael Larsen
  */
+@AllArgsConstructor
+@Builder
 public class Employee {
+    @Getter @Setter
     private String employeeName;
-    private Integer yearlySalary;
+    @Getter @Setter
+    private Integer employeeSalary;
+    @Getter @Setter
     private Integer age;
+    @Getter @Setter
     private String picture;
-
-    public Employee(String employeeName, Integer salary, Integer age, String picture) {
-        this.employeeName = employeeName;
-        this.yearlySalary = salary;
-        this.age = age;
-        this.picture = picture;
-    }
-
-    public void setEmployeeName(String name) {
-        this.employeeName = name;
-    }
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-    public void setEmployeeSalary(Integer yearlysalary) {
-        this.yearlySalary =yearlysalary;
-    }
-
-    public Integer getEmployeeSalary() {
-        return yearlySalary;
-    }
-
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
 }
